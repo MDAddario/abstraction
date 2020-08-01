@@ -2,9 +2,9 @@
 
 _insert clear description of paradigm here_
 
-# Program output:
+### Program output
 
-```python
+---
 Pencil A.
 Pencil B.
 Pencil C.
@@ -18,8 +18,8 @@ The key is tree:
 Tree A.
 Tree B.
 Tree C.
-```
+---
 
-# Dependencies
+### Dependencies
 
-`python>=3.7`
+`python >= 3.7`
