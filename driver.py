@@ -10,3 +10,4 @@ if __name__ == '__main__':
             print(f"The key is {key}:")
             controller.process_in()
             controller.process_out()
+            print('')
