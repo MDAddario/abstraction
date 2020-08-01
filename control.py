@@ -1,3 +1,4 @@
+from glob import glob
 from contextlib import nullcontext
 
 
@@ -19,5 +20,10 @@ class Controller:
         with nullcontext():
             self.foo_c()
 
-
 control_dict = {}
+specs_list = glob.glob('specs_*.py')
+for specs in specs_list:
+    file = __import__(specs[:-2])
+    foos = (file.foo_a, file.foo_b, file.foo_c)
+    key  = file.hashkey
+    control_dict[key] = Controller(*foos)
