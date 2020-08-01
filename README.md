@@ -4,7 +4,8 @@ _insert clear description of paradigm here_
 
 ### Program output
 
----
+```
+The key is pencil:
 Pencil A.
 Pencil B.
 Pencil C.
@@ -18,7 +19,7 @@ The key is tree:
 Tree A.
 Tree B.
 Tree C.
----
+```
 
 ### Dependencies
 
