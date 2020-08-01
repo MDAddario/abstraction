@@ -10,11 +10,14 @@ class Controller:
     
     def process_in(self):
         
-        with nullcontext() as _:
+        with nullcontext():
             self.foo_a()
             self.foo_b()
     
     def process_out(self):
         
-        with nullcontext() as _:
+        with nullcontext():
             self.foo_c()
+
+
+control_dict = {}
