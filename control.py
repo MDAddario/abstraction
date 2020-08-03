@@ -1,4 +1,4 @@
-from glob import iglob
+from os import listdir
 from contextlib import nullcontext
 
 
@@ -22,11 +22,13 @@ class Controller:
 
 
 control_dict = {}
-for path in iglob('specs/*.py'):
+spec_dir = 'specs'
 
-    if '__init__' in path: continue
+for path in listdir(spec_dir):
     
-    name = path[6:-3]
-    mod = __import__(f"specs.{name}", fromlist=[None])
+    if '__pycache__' in path: continue
+    
+    name = path[:-3]
+    mod = __import__(f"{spec_dir}.{name}", fromlist=[None])
     foos = (mod.foo_a, mod.foo_b, mod.foo_c)
     control_dict[name] = Controller(*foos)
