@@ -22,9 +22,11 @@ class Controller:
 
 
 control_dict = {}
-specs_list = glob('specs_*.py')
-for specs in specs_list:
-    file = __import__(specs[:-3])
+for path in glob('specs/*.py'):
+
+    if '__init__' in path: continue
+    
+    file = __import__(path[:-3].replace('/', '.'), fromlist=['foo_a', 'foo_b', 'foo_c'])
     foos = (file.foo_a, file.foo_b, file.foo_c)
-    key = file.hashkey
+    key = path[6:-3]
     control_dict[key] = Controller(*foos)
