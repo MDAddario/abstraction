@@ -1,4 +1,4 @@
-from glob import glob
+from glob import iglob
 from contextlib import nullcontext
 
 
@@ -22,11 +22,11 @@ class Controller:
 
 
 control_dict = {}
-for path in glob('specs/*.py'):
+for path in iglob('specs/*.py'):
 
     if '__init__' in path: continue
     
-    file = __import__(path[:-3].replace('/', '.'), fromlist=['foo_a', 'foo_b', 'foo_c'])
-    foos = (file.foo_a, file.foo_b, file.foo_c)
-    key = path[6:-3]
-    control_dict[key] = Controller(*foos)
+    name = path[6:-3]
+    mod = __import__(f"specs.{name}", fromlist=[None])
+    foos = (mod.foo_a, mod.foo_b, mod.foo_c)
+    control_dict[name] = Controller(*foos)
