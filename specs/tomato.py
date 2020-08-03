@@ -6,5 +6,3 @@ def foo_b():
 
 def foo_c():
     print('Tomato C.')
-
-hashkey = 'tomato'
